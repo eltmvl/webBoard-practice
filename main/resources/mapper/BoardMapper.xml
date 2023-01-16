@@ -38,11 +38,4 @@
     WHERE boardID=#{boardID};
     </delete>
 
-    <insert id="signUpBoard" parameterType="webBoard.JianBoard.domain.member">
-        INSERT INTO tb_member (id,pw,name,birth,email)
-        VALUES
-            (#{id}, #{pw}, #{name}, #{birth}, #{email});
-    </insert>
-
-
 </mapper>

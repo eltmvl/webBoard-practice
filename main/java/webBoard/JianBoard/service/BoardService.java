@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import webBoard.JianBoard.domain.Board;
 import webBoard.JianBoard.mapper.BoardMapper;
+import webBoard.JianBoard.mapper.MemberMapper;
 
 import java.util.List;
 
@@ -38,6 +39,4 @@ public class BoardService {
         boardMapper.deleteBoard(boardID);
     }
 
-    @Transactional
-    public void signUpBoard(String id) { boardMapper.signUpBoard(id);}
 }

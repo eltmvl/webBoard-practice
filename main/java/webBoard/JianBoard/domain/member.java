@@ -5,17 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class member {
+public class Member {
     private String id;
     private String pw;
     private String name;
     private String birth;
     private String email;
+    private int tfCnt;
 }
