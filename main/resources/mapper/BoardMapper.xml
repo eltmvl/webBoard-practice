@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="webBoard.JianBoard.mapper.BoardMapper">
+
+
+    <select id="boardCount" resultType="int"> // id 와 BoardMapper.interface 의 메소드가 같음
+    SELECT count(boardID) AS cnt FROM tb_board // 게시글 수 반환
+    </select>
+
+    <select id="getList" resultType="webBoard.JianBoard.domain.Board">
+        SELECT
+            *
+        FROM tb_board //  게시글 리스트 반환
+    </select>
+
+    <select id="getBoard" parameterType="Long" resultType="webBoard.JianBoard.domain.Board">
+        SELECT
+            *
+        FROM tb_board where boardID=#{boardID};
+    </select>
+
+    <insert id="uploadBoard" parameterType="webBoard.JianBoard.domain.Board">
+        INSERT INTO tb_board (title,content,name)
+        VALUES
+        (#{title}, #{content}, #{name});
+    </insert>
+
+    <update id="updateBoard" parameterType="webBoard.JianBoard.domain.Board">
+        UPDATE tb_board
+        SET title=#{title},content=#{content}
+        WHERE boardID=#{boardID};
+    </update>
+
+    <delete id="deleteBoard" parameterType="Long">
+    DELETE
+    FROM tb_board
+    WHERE boardID=#{boardID};
+    </delete>
+
+    <insert id="signUpBoard" parameterType="webBoard.JianBoard.domain.member">
+        INSERT INTO tb_member (id,pw,name,birth,email)
+        VALUES
+            (#{id}, #{pw}, #{name}, #{birth}, #{email});
+    </insert>
+
+
+</mapper>
